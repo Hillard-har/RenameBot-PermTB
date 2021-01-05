@@ -14,7 +14,8 @@ class script(object):
     SAVED_RECVD_DOC_FILE = "File Downloaded Successfully 😎"
     CUSTOM_CAPTION_UL_FILE = " "
     HELP_USER = """It's not that complicated😅
-    
+    MAX_PROCESS = "⛔ 𝐃𝐎𝐍'𝐓 𝐅𝐋𝐎𝐎𝐃: \n\n😡 ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ ᴜɴᴛɪʟ ᴘʀᴇᴠɪᴏᴜs ᴛᴀsᴋ ᴄᴏᴍᴘʟᴇᴛᴇ.\n\n😊 ʏᴏᴜ ᴄᴀɴ ʀᴇϙᴜᴇsᴛ ᴀғᴛᴇʀ ᴛʜᴇ ᴛɪᴍᴇ, ᴍᴇɴᴛɪᴏɴᴇᴅ ᴀʙᴏᴠᴇ"
+
 1. Send me any Telegram File.
 2. Choose appropriate option."""
 
