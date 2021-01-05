@@ -65,16 +65,38 @@ def upgrade(bot, update):
     
 @Client.on_message(filters.private & (filters.document | filters.video | filters.audio | filters.voice | filters.video_note))
 async def rename_cb(bot, update):
- 
+
+    p = await update.reply_text('ᴘʀᴏᴄᴇssɪɴɢ ʀᴇϙᴜᴇsᴛ ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ...😴', True)
+    update_channel = Config.UPDATE_CHANNEL
+    if update_channel:
+        try:
+           user = await bot.get_chat_member(update_channel, update.chat.id)
+            if user.status == "kicked":
+                await p.edit_text("🤭 Sorry Dude, You are **B A N N E D 🤣🤣🤣**",True)
+                return
+        except UserNotParticipant:
+            #await p.delete()
+            await p.edit_text(
+                text="⚠️ 𝐒𝐎𝐑𝐑𝐘 𝐏𝐑𝐎𝐂𝐄𝐒𝐒𝐈𝐍𝐆 𝐂𝐀𝐍𝐂𝐄𝐋𝐋𝐄𝐃 **\n\nʏᴏᴜ ʜᴀᴠᴇ ᴛᴏ ᴊᴏɪɴ ᴛʜᴇ ᴄʜᴀɴɴᴇʟ ᴛᴏ ᴜsᴇ ᴍᴇ.**",
+                reply_markup=InlineKeyboardMarkup([
+                    [ InlineKeyboardButton(text="♥️ 𝙹𝚘𝚒𝚗", url=f"https://t.me/Anylink_Movies")]
+              ]) 
+            )
+            return
+        except Exception:
+            await p.edit_text("⛔ sᴏᴍᴇᴛʜɪɴɢ ᴡʀᴏɴɢ. ᴄᴏɴᴛᴀᴄᴛ @stemlime_bot")
+            return
+    
     file = update.document or update.video or update.audio or update.voice or update.video_note
     try:
         filename = file.file_name
     except:
         filename = "Not Available"
-    
+
+    await p.delete()
     await bot.send_message(
         chat_id=update.chat.id,
-        text="<b>File Name</b> : <code>{}</code> \n\nSelect the desired option below 😇".format(filename),
+        text="<b>ғɪʟᴇ ɴᴀᴍᴇ :</b> : <code>{}</code> \n\nSelect the desired option below 😇".format(filename),
         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="📝 RENAME 📝", callback_data="rename_button")],
                                                 [InlineKeyboardButton(text="✖️ CANCEL ✖️", callback_data="cancel_e")]]),
         parse_mode="html",
