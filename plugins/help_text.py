@@ -88,7 +88,7 @@ async def rename_cb(bot, update):
     #chat_id = update.chat.id
     #if bot.CURRENT_PROCESSES.get(chat_id, 0) == Config.MAX_PROCESSES_PER_USER:
         #await p.edit_text(
-            text=script.MAX_PROCESS,
+            #text=script.MAX_PROCESS,
             #chat_id=update.chat.id,
             #reply_to_message_id=update.message_id
             #reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔐 CLOSE", callback_data = 'close')]])
