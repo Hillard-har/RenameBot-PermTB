@@ -71,9 +71,9 @@ async def rename_cb(bot, update):
     if update_channel:
         try:
            user = await bot.get_chat_member(update_channel, update.chat.id)
-            if user.status == "kicked":
-                await p.edit_text("🤭 Sorry Dude, You are **B A N N E D 🤣🤣🤣**",True)
-                return
+           if user.status == "kicked":
+               await p.edit_text("🤭 Sorry Dude, You are **B A N N E D 🤣🤣🤣**",True)
+               return
         except UserNotParticipant:
             #await p.delete()
             await p.edit_text(
