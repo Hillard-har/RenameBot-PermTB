@@ -86,6 +86,15 @@ async def rename_cb(bot, update):
         except Exception:
             await p.edit_text("⛔ sᴏᴍᴇᴛʜɪɴɢ ᴡʀᴏɴɢ. ᴄᴏɴᴛᴀᴄᴛ @stemlime_bot")
             return
+    chat_id = update.chat.id
+    if bot.CURRENT_PROCESSES.get(chat_id, 0) == Config.MAX_PROCESSES_PER_USER:
+        await p.edit_text(
+            text=script.MAX_PROCESS,
+            #chat_id=update.chat.id,
+            #reply_to_message_id=update.message_id
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔐 CLOSE", callback_data = 'close')]])
+        )
+        return
     
     file = update.document or update.video or update.audio or update.voice or update.video_note
     try:
