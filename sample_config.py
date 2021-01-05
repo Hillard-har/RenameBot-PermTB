@@ -28,3 +28,6 @@ class Config(object):
     # Database url
     DB_URI = os.environ.get("DATABASE_URL", "")
 
+    # To get your update channel
+    UPDATE_CHANNEL = os.environ.get("UPDATE_CHANNEL", "")
+
